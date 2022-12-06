@@ -4,10 +4,17 @@ import term { bg_yellow, bold, green, red }
 
 // extern_HD_directory := input("Qual o diretório do HD externo?: ")
 // println(extern_HD_directory)
+if execute('sudo apt update').exit_code == 0 {
+	println('apt-get updated')
+}else{
+	println(bold(red("FAIL<--------------------------->")))
+}
 
-println('updating apt-get...')
-// println(execute('gisdfsfsdt --version').exit_code != 0)
-// execute('sudo apt-get -y update')
+if execute('sudo apt install build-essential').exit_code == 0 {
+	println('installing build-essential...')
+}else{
+	println(bold(red("FAIL<--------------------------->")))
+}
 
 has_git := execute('git --version').exit_code == 0
 if !has_git {
@@ -68,10 +75,20 @@ if !(execute('wget --version').exit_code == 0) {
 if !(execute('nvm --version').exit_code == 0) {
 	println(bold('installing nvm...'))
 	execute_or_exit('wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash')
+	/*
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+	*/
+	execute_or_exit('export NVM_DIR="\$HOME/.nvm"\n[ -s "\$NVM_DIR/nvm.sh" ] && \\. "\$NVM_DIR/nvm.sh"\n[ -s "\$NVM_DIR/bash_completion" ] && \\. "\$NVM_DIR/bash_completion"')
 
-	execute_or_exit('export NVM_DIR="$([ -z "\${XDG_CONFIG_HOME-}" ] && printf %s "\${HOME}/.nvm" || printf %s "\${XDG_CONFIG_HOME}/nvm")"')
+	if !(execute('node -v').exit_code == 0) {
+		println('installing node...')
+		execute('nvm install node')
+		execute('nvm alias default node')
+		println(bold(green(execute('node -v').output)))
+	}
 
-	execute_or_exit('[ -s "\$NVM_DIR/nvm.sh" ] && \\. "\$NVM_DIR/nvm.sh"')
 	println(bold(green(execute('nvm --version').output)))
 }
 
