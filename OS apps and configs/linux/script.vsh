@@ -6,14 +6,14 @@ import term { bg_yellow, bold, green, red }
 // println(extern_HD_directory)
 if execute('sudo apt update').exit_code == 0 {
 	println('apt-get updated')
-}else{
-	println(bold(red("FAIL<--------------------------->")))
+} else {
+	println(bold(red('FAIL<--------------------------->')))
 }
 
 if execute('sudo apt install build-essential').exit_code == 0 {
 	println('installing build-essential...')
-}else{
-	println(bold(red("FAIL<--------------------------->")))
+} else {
+	println(bold(red('FAIL<--------------------------->')))
 }
 
 has_git := execute('git --version').exit_code == 0
