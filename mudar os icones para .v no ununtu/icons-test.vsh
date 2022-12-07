@@ -14,9 +14,7 @@ if !(execute_or_exit('sudo cp -R icons/x-v.xml /usr/share/mime/packages/').exit_
 	println(red("was not possible copy `icons/x-v.xml` to `/usr/share/mime/packages/`"))
 } 
 
-if !(execute('sudo rm /usr/share/mime/packages/vlang.xml').exit_code == 0) {
-	println(yellow("was not possible remove the file `/usr/share/mime/packages/vlang.xml`"))
-} 
+execute('sudo rm /usr/share/mime/packages/vlang.xml')
 
 if !(execute_or_exit('sudo update-mime-database /usr/share/mime').exit_code == 0) {
 	println(red("was not possible run `update-mime-database /usr/share/mime`"))
