@@ -19,7 +19,7 @@ if execute('sudo apt -y install build-essential').exit_code == 0 {
 has_vscode := execute('code --version').exit_code == 0
 if !has_vscode {
 	println(bold('installing vscode...'))
-	if execute('sudo snap install code --classic').exit_code == 0 {
+	if execute('sudo snap install --classic code').exit_code == 0 {
 		println('vscode installed')
 	} else {
 		println(bold(red('FAIL<Was not possible install the vscode>')))
