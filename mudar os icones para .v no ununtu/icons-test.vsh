@@ -6,8 +6,57 @@ if !(execute('rm /usr/share/mime/packages/v.xml').exit_code == 0) {
 	println(green("No such file or directory"))
 } 
 
-if !(execute_or_exit('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru/').exit_code == 0) {
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru/').exit_code == 0) {
 	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru/`"))
+}
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Adwaita/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Adwaita/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-bark/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru-bark` to `/usr/share/icons/Yaru-bark/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-blue/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru-blue` to `/usr/share/icons/Yaru-blue/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-magenta/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-magenta/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-olive/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-olive/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-prussiangreen/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-prussiangreen/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-purple/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-purple/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-red/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-red/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-sage/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-sage/`"))
+} 
+
+
+if !(execute('sudo cp -R icons/Yaru/* /usr/share/icons/Yaru-viridian/').exit_code == 0) {
+	println(red("was not possible copy `icons/Yaru` to `/usr/share/icons/Yaru-viridian/`"))
 } 
 
 if !(execute_or_exit('sudo cp -R icons/x-v.xml /usr/share/mime/packages/').exit_code == 0) {

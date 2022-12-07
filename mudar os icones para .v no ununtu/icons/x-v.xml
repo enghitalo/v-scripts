@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
     <mime-type type="text/x-v">
-        <comment>Vlang MIME Type</comment>
+        <comment>V language MIME Type</comment>
         <comment xml:lang="pt_BR">Código-fonte Vlang</comment>
 		<sub-class-of type="text/plain"/>
         <glob pattern="*.v"/>
