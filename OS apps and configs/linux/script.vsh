@@ -1,19 +1,29 @@
 #!/usr/bin/env -S v
 
-import term { bg_yellow, bold, green, red }
+import term { bold, green, red }
 
 // extern_HD_directory := input("Qual o diretório do HD externo?: ")
 // println(extern_HD_directory)
-if execute('sudo apt update').exit_code == 0 {
+if execute('sudo apt -y update').exit_code == 0 {
 	println('apt-get updated')
 } else {
 	println(bold(red('FAIL<--------------------------->')))
 }
 
-if execute('sudo apt install build-essential').exit_code == 0 {
+if execute('sudo apt -y install build-essential').exit_code == 0 {
 	println('installing build-essential...')
 } else {
 	println(bold(red('FAIL<--------------------------->')))
+}
+
+has_vscode := execute('code --version').exit_code == 0
+if !has_vscode {
+	println(bold('installing vscode...'))
+	if execute('sudo snap install code --classic').exit_code == 0 {
+		println('vscode installed')
+	} else {
+		println(bold(red('FAIL<Was not possible install the vscode>')))
+	}
 }
 
 has_git := execute('git --version').exit_code == 0
@@ -31,7 +41,7 @@ if !has_zsh {
 }
 
 if !execute('echo \$SHELL').output.contains('/usr/bin/zsh') {
-	println(bg_yellow(red('"echo \$SHELL" not have "/usr/bin/zsh"')))
+	println(red('"echo \$SHELL" not have "/usr/bin/zsh"'))
 }
 
 has_p10k := execute('[ -f ~/powerlevel10k/powerlevel10k.zsh-theme ]').exit_code == 0
