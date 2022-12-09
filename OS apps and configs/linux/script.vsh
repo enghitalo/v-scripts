@@ -7,13 +7,19 @@ import term { bold, green, red }
 if execute('sudo apt -y update').exit_code == 0 {
 	println('apt-get updated')
 } else {
-	println(bold(red('FAIL<--------------------------->')))
+	println(bold(red('FAIL<sudo apt -y update>')))
 }
 
 if execute('sudo apt -y install build-essential').exit_code == 0 {
 	println('installing build-essential...')
 } else {
-	println(bold(red('FAIL<--------------------------->')))
+	println(bold(red('FAIL<build-essential>')))
+}
+
+if execute('sudo apt -y install bluez').exit_code == 0 {
+	println('installing bluez (usado para o bluetooth)...')
+} else {
+	println(bold(red('FAIL<bluez>')))
 }
 
 has_vscode := execute('code --version').exit_code == 0
