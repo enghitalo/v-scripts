@@ -142,7 +142,7 @@ if !(execute('').exit_code == 0) {
 	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
 
-
+// https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
 if !(execute('mysql --version').exit_code == 0) {
 	println(bold('installing mysql...'))
 	execute('sudo apt install mysql-server')
