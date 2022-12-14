@@ -108,18 +108,17 @@ if !(execute('nvm --version').exit_code == 0) {
 	println(bold(green(execute('nvm --version').output)))
 }
 
-
 if !(execute('mysql-workbench-community --version').exit_code == 0) {
 	println(bold('installing mysql-workbench-community...'))
 	execute('sudo snap install mysql-workbench-community')
-	
+
 	println(bold(green(execute('mysql-workbench-community --version').output)))
 }
 
 if !(execute('dbeaver-ce -dump').exit_code == 0) {
 	println(bold('installing dbeaver-ce...'))
 	execute('sudo snap install dbeaver-ce ')
-	
+
 	println(bold(green(execute('dbeaver-ce installed').output)))
 }
 
@@ -134,11 +133,10 @@ if !(execute('postgresql --version').exit_code == 0) {
 	println(bold(green(execute('libpq-dev installed').output)))
 }
 
-
 if !(execute('').exit_code == 0) {
 	println(bold('installing libsqlite3-dev...'))
 	execute('sudo apt -y install libsqlite3-dev')
-	
+
 	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
 
@@ -147,7 +145,7 @@ if !(execute('mysql --version').exit_code == 0) {
 	println(bold('installing mysql...'))
 	execute('sudo apt -y install mysql-server')
 	execute('sudo systemctl start mysql.service')
-	
+
 	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
 
