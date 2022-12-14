@@ -108,5 +108,21 @@ if !(execute('nvm --version').exit_code == 0) {
 	println(bold(green(execute('nvm --version').output)))
 }
 
+
+if !(execute('mysql-workbench-community --version').exit_code == 0) {
+	println(bold('installing mysql-workbench-community...'))
+	execute('sudo snap install mysql-workbench-community')
+	
+	println(bold(green(execute('mysql-workbench-community --version').output)))
+}
+
+
+if !(execute('dbeaver-ce -dump').exit_code == 0) {
+	println(bold('installing dbeaver-ce ...'))
+	execute('sudo snap install dbeaver-ce ')
+	
+	println(bold(green(execute('dbeaver-ce installed').output)))
+}
+
 println('ending script...')
 execute_or_exit('sudo apt -y autoremove')
