@@ -130,14 +130,14 @@ if !(execute('postgresql --version').exit_code == 0) {
 	execute('sudo systemctl start  postgresql')
 	println(bold(green(execute('postgresql installed').output)))
 
-	execute('sudo apt-get install libpq-dev')
+	execute('sudo apt -y install libpq-dev')
 	println(bold(green(execute('libpq-dev installed').output)))
 }
 
 
 if !(execute('').exit_code == 0) {
 	println(bold('installing libsqlite3-dev...'))
-	execute('sudo apt install -y libsqlite3-dev')
+	execute('sudo apt -y install libsqlite3-dev')
 	
 	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
@@ -145,7 +145,7 @@ if !(execute('').exit_code == 0) {
 // https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
 if !(execute('mysql --version').exit_code == 0) {
 	println(bold('installing mysql...'))
-	execute('sudo apt install mysql-server')
+	execute('sudo apt -y install mysql-server')
 	execute('sudo systemctl start mysql.service')
 	
 	println(bold(green(execute('libsqlite3-dev installed').output)))
