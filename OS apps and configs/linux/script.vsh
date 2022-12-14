@@ -142,5 +142,15 @@ if !(execute('').exit_code == 0) {
 	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
 
+
+if !(execute('mysql --version').exit_code == 0) {
+	println(bold('installing mysql...'))
+	execute('sudo apt install mysql-server')
+	execute('sudo systemctl start mysql.service')
+	
+	println(bold(green(execute('libsqlite3-dev installed').output)))
+}
+
 println('ending script...')
+execute('sudo apt upgrade')
 execute_or_exit('sudo apt -y autoremove')
