@@ -116,12 +116,30 @@ if !(execute('mysql-workbench-community --version').exit_code == 0) {
 	println(bold(green(execute('mysql-workbench-community --version').output)))
 }
 
-
 if !(execute('dbeaver-ce -dump').exit_code == 0) {
-	println(bold('installing dbeaver-ce ...'))
+	println(bold('installing dbeaver-ce...'))
 	execute('sudo snap install dbeaver-ce ')
 	
 	println(bold(green(execute('dbeaver-ce installed').output)))
+}
+
+if !(execute('postgresql --version').exit_code == 0) {
+	println(bold('installing postgresql...'))
+	execute('sudo apt -y install postgresql postgresql-client')
+	execute('sudo systemctl enable postgresql') // to autostart on startup
+	execute('sudo systemctl start  postgresql')
+	println(bold(green(execute('postgresql installed').output)))
+
+	execute('sudo apt-get install libpq-dev')
+	println(bold(green(execute('libpq-dev installed').output)))
+}
+
+
+if !(execute('').exit_code == 0) {
+	println(bold('installing libsqlite3-dev...'))
+	execute('sudo apt install -y libsqlite3-dev')
+	
+	println(bold(green(execute('libsqlite3-dev installed').output)))
 }
 
 println('ending script...')
