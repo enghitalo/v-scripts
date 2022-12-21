@@ -16,6 +16,14 @@ if execute('sudo apt -y install build-essential').exit_code == 0 {
 	println(bold(red('FAIL<build-essential>')))
 }
 
+if execute('sudo apt -y install clang --install-suggests').exit_code == 0 {
+	println('installing clang..')
+} else {
+	println(bold(red('FAIL<clang>')))
+}
+
+println(bold(green(execute('clang --version').output)))
+
 if execute('sudo apt -y install bluez').exit_code == 0 {
 	println('installing bluez (usado para o bluetooth)...')
 } else {
