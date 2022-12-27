@@ -127,7 +127,7 @@ if !(execute('dbeaver-ce -dump').exit_code == 0) {
 	println(bold('installing dbeaver-ce...'))
 	execute('sudo snap install dbeaver-ce ')
 
-	println(bold(green(execute('dbeaver-ce installed').output)))
+	println(bold(green('dbeaver-ce installed')))
 }
 
 if !(execute('postgresql --version').exit_code == 0) {
@@ -138,14 +138,14 @@ if !(execute('postgresql --version').exit_code == 0) {
 	println(bold(green(execute('postgresql installed').output)))
 
 	execute('sudo apt -y install libpq-dev')
-	println(bold(green(execute('libpq-dev installed').output)))
+	println(bold(green(execute('postgresql --version').output)))
 }
 
 if !(execute('').exit_code == 0) {
 	println(bold('installing libsqlite3-dev...'))
 	execute('sudo apt -y install libsqlite3-dev')
 
-	println(bold(green(execute('libsqlite3-dev installed').output)))
+	println(bold(green('libsqlite3-dev installed')))
 }
 
 // https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
@@ -154,7 +154,22 @@ if !(execute('mysql --version').exit_code == 0) {
 	execute('sudo apt -y install mysql-server')
 	execute('sudo systemctl start mysql.service')
 
-	println(bold(green(execute('libsqlite3-dev installed').output)))
+	println(bold(green(execute('mysql --version').output)))
+}
+
+// https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04
+if !(execute('java -version').exit_code == 0) {
+	println(bold('installing java...'))
+	execute('sudo apt -y install default-jre')
+
+	println(bold(green(execute('java -version').output)))
+}
+
+if !(execute('javac -version').exit_code == 0) {
+	println(bold('installing javac...'))
+	execute('sudo apt -y install default-jdk')
+
+	println(bold(green(execute('javac -version').output)))
 }
 
 println('ending script...')
