@@ -16,6 +16,9 @@ if execute('sudo apt -y install build-essential').exit_code == 0 {
 	println(bold(red('FAIL<build-essential>')))
 }
 
+execute('sudo apt -y install libgc-dev')
+execute('sudo apt -y install tcc')
+
 if execute('sudo apt -y install clang --install-suggests').exit_code == 0 {
 	println('installing clang..')
 } else {
