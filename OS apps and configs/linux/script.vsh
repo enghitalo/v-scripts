@@ -176,5 +176,5 @@ if !(execute('javac -version').exit_code == 0) {
 }
 
 println('ending script...')
-execute('sudo apt upgrade')
+execute('sudo apt -y upgrade')
 execute_or_exit('sudo apt -y autoremove')
