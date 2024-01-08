@@ -16,6 +16,33 @@ if execute('sudo apt -y install build-essential').exit_code == 0 {
 	println(bold(red('FAIL<build-essential>')))
 }
 
+// sudo apt-get remove --purge '^nvidia-.*'                                                                                                                                                                                                                                 
+// sudo apt-get remove --purge '^libnvidia-.*'
+// sudo apt-get remove --purge '^cuda-.*'
+
+// sudo apt autoremove
+
+// sudo apt install --upgrade nvidia-cuda-toolkit
+
+// sudo ubuntu-drivers autoinstall
+
+// sudo ubuntu-drivers autoinstall
+// sudo ubuntu-drivers install --gpgpu
+// sudo killall apt apt-get
+// nvidia-smi
+
+if execute('sudo apt-get purge nvidia*').exit_code == 0 {
+	println('purge nvidia*...')
+} else {
+	println(bold(red('FAIL<purge nvidia*>')))
+}
+
+if execute('sudo ubuntu-drivers install').exit_code == 0 {
+	println('installing ubuntu-drivers...')
+} else {
+	println(bold(red('FAIL<ubuntu-drivers>')))
+}
+
 execute('sudo apt -y install libgc-dev')
 execute('sudo apt -y install tcc')
 
