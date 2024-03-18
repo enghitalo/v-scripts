@@ -126,6 +126,15 @@ if !(execute('wget --version').exit_code == 0) {
 	println(bold(green(execute('wget --version').output)))
 }
 
+
+if !(execute('node -v').exit_code == 0) {
+	println('installing node...')
+	execute('sudo apt install nodejs')
+	execute('nvm install node')
+	execute('nvm alias default node')
+	println(bold(green(execute('node -v').output)))
+}
+
 if !(execute('nvm --version').exit_code == 0) {
 	println(bold('installing nvm...'))
 	execute_or_exit('wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash')
